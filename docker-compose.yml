@@ -14,7 +14,6 @@ services:
     container_name: twas
     environment:
       ASPNETCORE_APPSETTINGS_FILEPATH: config\twas-appsettings.json
-      ASPNETCORE_APPSETTINGS_REDIS: redis
     volumes:
       - c:/shared-vol/config:c:/app/config
       - c:/shared-vol/logs:c:/app/logs
