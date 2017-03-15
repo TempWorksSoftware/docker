@@ -1,0 +1,32 @@
+version: '2.1'
+
+services:
+  redis:
+    image: tempworks/redis-server
+    container_name: redis-server
+    expose:
+      - "6379"
+    ports:
+      - "6379:6379" # REMARK: This is currently required, needs investigation
+
+  auth:
+    image: tempworks/auth-service
+    container_name: twas
+    environment:
+      ASPNETCORE_APPSETTINGS_FILEPATH: config\twas-appsettings.json
+      ASPNETCORE_APPSETTINGS_REDIS: redis
+    volumes:
+      - c:/shared-vol/config:c:/app/config
+      - c:/shared-vol/logs:c:/app/logs
+    expose:
+      - "88"
+    ports:
+      - "88:88"
+    depends_on:
+      - redis
+
+networks:
+  default:
+    external:
+      name: nat
+            
