@@ -24,8 +24,25 @@ services:
     depends_on:
       - redis
 
+  srps:
+    image: tempworks/sovren-srps
+    container_name: sovren-srps
+    expose:
+      - "55100"
+    ports:
+      - "55100:55100" # REMARK: This is currently required, needs investigation
+
+  convert:
+    image: tempworks/convert-service
+    container_name: convert-service
+    expose:
+      - "55200"
+    ports:
+      - "55200:55200" # REMARK: This is currently required, needs investigation
+
+
+
 networks:
   default:
     external:
       name: nat
-            
