@@ -18,9 +18,9 @@ services:
       - c:/shared-vol/config:c:/app/config
       - c:/shared-vol/logs:c:/app/logs
     expose:
-      - "88"
+      - "80"
     ports:
-      - "88:88"
+      - "88:80"
     depends_on:
       - redis
 
@@ -28,19 +28,35 @@ services:
     image: tempworks/sovren-srps
     container_name: sovren-srps
     expose:
-      - "55100"
+      - "80"
     ports:
-      - "55100:55100" # REMARK: This is currently required, needs investigation
+      - "55100:80" # REMARK: This is currently required, needs investigation
 
   convert:
     image: tempworks/convert-service
     container_name: convert-service
     expose:
-      - "55200"
+      - "80"
     ports:
-      - "55200:55200" # REMARK: This is currently required, needs investigation
+      - "55200:80" # REMARK: This is currently required, needs investigation
 
-
+  api:
+    image: tempworks/api-v3
+    container_name: twapi
+    environment:
+      ASPNETCORE_APPSETTINGS_FILEPATH: config\twapi-appsettings.json
+    volumes:
+      - c:/shared-vol/config:c:/app/config
+      - c:/shared-vol/logs:c:/app/logs
+    expose:
+      - "80"
+    ports:
+      - "80:80"
+    depends_on:
+      - auth
+      - redis
+      - srps
+      - convert
 
 networks:
   default:
