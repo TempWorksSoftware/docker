@@ -1,58 +1,65 @@
-version: '2.1'
+version: '3'
 
 services:
   redis:
     image: tempworks/redis-server
     container_name: redis-server
+    restart: always
     expose:
       - "6379"
     ports:
       - "6379:6379" # REMARK: This is currently required, needs investigation
 
   auth:
-    image: tempworks/auth-service
+    image: tempworks/auth-service:$AUTH_VERSION
     container_name: auth-service
     environment:
-      ASPNETCORE_APPSETTINGS_FILEPATH: config\twas-appsettings.json
+      - ASPNETCORE_ENVIRONMENT=Production
+      - TWAPI_CONFIG_BASEPATH=c:\app\config
     volumes:
-      - c:/shared-vol/config:c:/app/config
-      - c:/shared-vol/logs:c:/app/logs
+      - c:/ProgramData/TempWorks/auth/config:c:/app/config
+      - c:/ProgramData/TempWorks/auth/logs:c:/app/logs
+    restart: always
     expose:
       - "80"
     ports:
       - "88:80"
-    depends_on:
+    links:
       - redis
 
   srps:
     image: tempworks/sovren-srps
     container_name: sovren-srps
+    restart: always
     expose:
       - "80"
     ports:
-      - "55100:80" # REMARK: This is currently required, needs investigation
+      - "8001:80"
 
   convert:
     image: tempworks/convert-service
     container_name: convert-service
+    restart: always
     expose:
       - "80"
     ports:
-      - "55200:80" # REMARK: This is currently required, needs investigation
+      - "8002:80"
 
-  api-web:
-    image: tempworks/api3-web-dev
-    container_name: api3-web-dev
+  api-server:
+    image: tempworks/api3-server:$API3_VERSION
+    container_name: api3-server
     environment:
-      ASPNETCORE_APPSETTINGS_FILEPATH: config\twapi-appsettings.json
+      - ASPNETCORE_ENVIRONMENT=Production
+      - TWAPI_CONFIG_BASEPATH=c:\app\config
     volumes:
-      - c:/shared-vol/config:c:/app/config
-      - c:/shared-vol/logs:c:/app/logs
+      - c:/ProgramData/TempWorks/api-server/config:c:/app/config
+      - c:/ProgramData/TempWorks/api-server/logs:c:/app/logs
+    restart: always
     expose:
       - "80"
     ports:
       - "80:80"
-    depends_on:
+    links:
       - auth
       - redis
       - srps
