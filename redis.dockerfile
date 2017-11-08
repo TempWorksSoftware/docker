@@ -1,18 +1,16 @@
-FROM microsoft/windowsservercore
+FROM microsoft/windowsservercore:1709
 LABEL vendor="TempWorks Software, paul@tempworks.com"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-# Workaround: having trouble downloading redis dist from the web, using a local zip file.
-WORKDIR /temp
-COPY ./Redis-x64-3.2.100.zip .
-
-# Download and Install Redis from zip file.
-RUN Expand-Archive Redis-x64-3.2.100.zip -dest 'C:\\Redis\\' ; \
+RUN $ErrorActionPreference = 'Stop'; \  
+    wget https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile Redis-x64-3.2.100.zip ; \
+    Expand-Archive Redis-x64-3.2.100.zip -dest 'C:\\Program Files\\Redis\\' ; \
     Remove-Item Redis-x64-3.2.100.zip -Force
 
-RUN setx PATH '%PATH%;C:\\Redis\\'
-WORKDIR /redis
+RUN setx PATH '%PATH%;C:\\Program Files\\Redis\\'  
+
+WORKDIR 'C:\\Program Files\\Redis\\'  
 
 # Change to unprotected mode and open the daemon to listen on all interfaces.
 RUN Get-Content redis.windows.conf | Where { $_ -notmatch 'bind 127.0.0.1' } | Set-Content redis.openport.conf ; \
@@ -31,4 +29,3 @@ CMD .\\redis-server.exe .\\redis.unprotected.conf --port 6379 ; \
 # Docker healthcheck command
 HEALTHCHECK CMD powershell -command \ 
     try { if((redis-cli.exe ping) -eq 'PONG') {return 0} else {return 1}; } catch {return 1}
-    
