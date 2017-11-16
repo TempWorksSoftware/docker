@@ -1,3 +1,14 @@
+## Things you need before starting tasks in this document.
+* Prepared Windows Server 1709 installation
+Run Powershell command ```(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId```, result should be ```1709```
+
+* Functioning Windows Docker environment.
+Run from Powershell ```docker --version```, you should see ```Docker version 17.06.2-ee-5``` or later.
+Run from Powershell ```docker ps```, it should return a non-error.
+
+* Docker Hub account with access to the TempWorks private repository: https://hub.docker.com/u/tempworks
+
+## Create directories for persisted data on Docker host
 
 * Create persisted paths for container configs and logs, example:
 ```
@@ -9,7 +20,7 @@
 
 * Install and update config files
 
-#### Create certificates
+## Install and Configure OpenSSL
 ```text
 OpenSSL note:
 
@@ -31,7 +42,7 @@ OpenSSL note:
         challengePassword_max = 20
 ```
 
-##### Create certificates for TW Auth service
+## Create certificates for TW Auth service
 ```
 PS> openssl req -x509 -newkey rsa:4096 -days 10950 -nodes -subj "/C=US/O=YourOrg/CN=YourFqdn" -keyout key.pem -out cert.pem -config .\openssl.cfg
 PS> openssl pkcs12 -name "TempWorks Auth Signing" -export -in cert.pem -inkey key.pem -out auth-signing.pfx -password pass:YourPassword
@@ -40,19 +51,21 @@ Place pfx file in your `auth` `%config_root%\certs` folder.
 
 Update `auth` appsettings.json `SigningCertificateFilename` and `SigningCertificatePassword` keys to their proper values
 
-##### Create certificates for External Services credential store
+## Create certificates for External Services credential store
 ```
 PS> openssl req -x509 -newkey rsa:4096 -days 10950 -nodes -subj "/C=US/O=YourOrg/CN=YourFqdn" -keyout key.pem -out cert.pem -config .\openssl.cfg
 ```
 Place cert.pem and key.pem in your `api-server` `%config_root%\certs\ExternalServices` folder
 
-###### !!! TIP: Keep your pem & pfx files, and password in a secure place in case you need them in the future.
+##### !!! TIP: Keep your pem & pfx files, and password in a secure place in case you need them in the future.
 
-#### Docker-compose example:
+## 
+
+## Run docker-compose to install TempWorks API stack:
 ```
-    PS> $env:AUTH_VERSION = "XXXXX"
-    PS> $env:API3_VERSION = "XXXXX"
-    PS> docker-compose -f docker-compose.yml -p "TwAPI V3" up -d --build
+    PS> $env:AUTH_VERSION = "XXXXX";
+    PS> $env:API3_VERSION = "XXXXX";
+    PS> docker-compose -f docker-compose.yml -p "twapi" up -d --build;
 ```   
 
 
