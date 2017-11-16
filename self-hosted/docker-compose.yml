@@ -2,70 +2,71 @@ version: '3'
 
 services:
   redis:
-    image: tempworks/redis-server
-    container_name: redis-server
+    image: tempworks/redis-server:3.2.100-windowsservercore-1709
+    networks:
+      - frontend
+      - backend
     restart: always
     expose:
       - "6379"
     ports:
-      - "6379:6379" # REMARK: This is currently required, needs investigation
+      - "6379:6379"
+
+  srps:
+    image: tempworks/sovren-srps
+    networks:
+      - backend
+
+  convert:
+    image: tempworks/convert-service
+    networks:
+      - backend
 
   auth:
     image: tempworks/auth-service:$AUTH_VERSION
-    container_name: auth-service
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - TWAPI_CONFIG_BASEPATH=c:\app\config
+      - SERILOG_DEBUG=true
     volumes:
       - c:/ProgramData/TempWorks/auth/config:c:/app/config
       - c:/ProgramData/TempWorks/auth/logs:c:/app/logs
+    networks:
+      - frontend
+      - backend
     restart: always
     expose:
       - "80"
     ports:
       - "88:80"
-    links:
+    depends_on:
       - redis
-
-  srps:
-    image: tempworks/sovren-srps
-    container_name: sovren-srps
-    restart: always
-    expose:
-      - "80"
-    ports:
-      - "8001:80"
-
-  convert:
-    image: tempworks/convert-service
-    container_name: convert-service
-    restart: always
-    expose:
-      - "80"
-    ports:
-      - "8002:80"
 
   api-server:
     image: tempworks/api3-server:$API3_VERSION
-    container_name: api3-server
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - TWAPI_CONFIG_BASEPATH=c:\app\config
+      - SERILOG_DEBUG=true
     volumes:
       - c:/ProgramData/TempWorks/api-server/config:c:/app/config
       - c:/ProgramData/TempWorks/api-server/logs:c:/app/logs
+    networks:
+      - frontend
+      - backend
     restart: always
     expose:
       - "80"
     ports:
       - "80:80"
-    links:
+    depends_on:
       - auth
       - redis
       - srps
       - convert
 
 networks:
-  default:
+  backend:
+  frontend:
     external:
       name: nat
