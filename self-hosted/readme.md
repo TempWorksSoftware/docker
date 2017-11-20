@@ -26,7 +26,7 @@ OpenSSL note:
 
 1. Download and install OpenSSL Light for Windows at: http://slproweb.com/products/Win32OpenSSL.html
 2. Modify openssl.cnf
-   Look for the section starting with “req_attributes”, remove “unstructuredName”, and save the file.
+   Look for the section starting with â€œreq_attributesâ€, remove â€œunstructuredNameâ€, and save the file.
    
       Original:
         [ req_attributes ]
@@ -62,11 +62,16 @@ Place cert.pem and key.pem in your `api-server` `%config_root%\certs\ExternalSer
 ## 
 
 ## Run docker-compose to install TempWorks API stack:
+In the same directory as your docker-compose yml file run the following commands. Replace placeholders with the versions of the Auth and Api3 services you wish to install. Use ```latest``` if want to use the latest versions.
+
 ```
     PS> $env:AUTH_VERSION = "XXXXX";
     PS> $env:API3_VERSION = "XXXXX";
     PS> docker-compose -f docker-compose.yml -p "twapi" up -d --build;
 ```   
 
+An example docker-compose yml file can be found here:  
+https://github.com/tempworks/docker/blob/master/self-hosted/docker-compose.yml  
+This example yml file installs all services needed by TW API, it is for demostration purposes only.
 
 
