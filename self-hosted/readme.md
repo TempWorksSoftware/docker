@@ -19,10 +19,10 @@ Run from Powershell ```docker ps```, it should return a non-error.
 
 * Create persisted paths for container configs and logs, example:
 ```
-    PS> md c:/ProgramData/TempWorks/auth/config
-    PS> md c:/ProgramData/TempWorks/auth/logs
-    PS> md c:/ProgramData/TempWorks/api-server/config
-    PS> md c:/ProgramData/TempWorks/api-server/logs
+    PS> md c:/ProgramData/TempWorks/config/api-server
+    PS> md c:/ProgramData/TempWorks/config/login-server
+    PS> md c:/ProgramData/TempWorks/logs/api-server
+    PS> md c:/ProgramData/TempWorks/logs/login-server
 ```    
 
 * Install and update config files
@@ -72,7 +72,7 @@ Place cert.pem and key.pem in your `api-server` `%config_root%\certs\ExternalSer
 In the same directory as your docker-compose yml file run the following commands. Replace placeholders with the versions of the Auth and Api3 services you wish to install. Use ```latest``` if want to use the latest versions.
 
 ```
-    PS> $env:AUTH_VERSION = "XXXXX";
+    PS> $env:LOGIN_VERSION = "XXXXX";
     PS> $env:API3_VERSION = "XXXXX";
     PS> docker-compose -f docker-compose.yml -p "twapi" up -d --build;
 ```   
