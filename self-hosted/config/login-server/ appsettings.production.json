@@ -1,0 +1,16 @@
+{
+  "ConnectionStrings": {
+    "TwApiDatabase": "Server=XXXXX;Database=XXXXX;User Id=XXXXX;Password=XXXXX;",
+    "redis": "redis"
+  },
+  "AppSettings": {
+    "UpgradeInsecureRequest": "false",
+    "SigningCertificateFilename": "?????",
+    "SigningCertificatePassword": "?????"
+  },
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information"
+    }
+  }
+}
