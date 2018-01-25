@@ -4,8 +4,7 @@ services:
   redis:
     image: tempworks/redis-server:3.2.100-windowsservercore-1709
     networks:
-      - frontend
-      - backend
+      - default
     restart: always
     expose:
       - "6379"
@@ -15,30 +14,29 @@ services:
   srps:
     image: tempworks/sovren-srps
     networks:
-      - backend
+      - default
 
   convert:
     image: tempworks/convert-service
     networks:
-      - backend
+      - default
 
-  auth:
-    image: tempworks/auth-service:$AUTH_VERSION
+  login:
+    image: tempworks/login-server:$LOGIN_VERSION
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - TWAPI_CONFIG_BASEPATH=c:\app\config
       - SERILOG_DEBUG=true
     volumes:
-      - c:/ProgramData/TempWorks/auth/config:c:/app/config
-      - c:/ProgramData/TempWorks/auth/logs:c:/app/logs
+      - c:/ProgramData/TempWorks/config/login-server:c:/app/config
+      - c:/ProgramData/TempWorks/logs/login-server:c:/app/logs
     networks:
-      - frontend
-      - backend
+      - default
     restart: always
     expose:
       - "80"
     ports:
-      - "88:80"
+      - "55180:80"
     depends_on:
       - redis
 
@@ -49,24 +47,22 @@ services:
       - TWAPI_CONFIG_BASEPATH=c:\app\config
       - SERILOG_DEBUG=true
     volumes:
-      - c:/ProgramData/TempWorks/api-server/config:c:/app/config
-      - c:/ProgramData/TempWorks/api-server/logs:c:/app/logs
+      - c:/ProgramData/TempWorks/config/api-server:c:/app/config
+      - c:/ProgramData/TempWorks/logs/api-server:c:/app/logs
     networks:
-      - frontend
-      - backend
+      - default
     restart: always
     expose:
       - "80"
     ports:
-      - "80:80"
+      - "55080:80"
     depends_on:
-      - auth
+      - login
       - redis
       - srps
       - convert
 
 networks:
-  backend:
-  frontend:
+  default:
     external:
       name: nat
