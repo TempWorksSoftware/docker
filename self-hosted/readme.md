@@ -7,9 +7,11 @@ http://www.deploycontainers.com/2017/10/30/install-docker-windows-server-2016-ve
 * ***TempWorks Docker Container images require Windows Server 1709 Docker Hosts***
 
 * *Prepared Windows Server 1709 installation*  
-Run Powershell command ```(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId```, result should be **```1709```**
+Run Powershell command  
+```(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId```  
+result should be **```1709```**
 
-* *Functioning Windows Docker environment.*  
+* *Functioning Windows Docker environment.*  
 Run command ```docker --version```, you should see **```Docker version 17.06.2-ee-5```** or later.  
 Run command ```docker ps```, it should return a non-error.  
 
