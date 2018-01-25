@@ -71,8 +71,9 @@ Place cert.pem and key.pem in your `api-server` `%config_root%\certs\ExternalSer
 ## 
 
 ## Run docker-compose to install TempWorks API stack:
-In the same directory as your docker-compose yml file run the following commands. Replace placeholders with the versions of the Auth and Api3 services you wish to install. Use ```latest``` if want to use the latest versions.
+In the same directory as your docker-compose yml file run the following commands. Replace placeholders with the versions of the Login and Api3 servers you wish to install. Use ```latest``` if want to use the latest versions.
 
+Example:  
 ```
     PS> $env:LOGIN_VERSION = "latest";
     PS> $env:API3_VERSION = "latest";
