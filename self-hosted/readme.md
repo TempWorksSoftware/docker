@@ -81,6 +81,7 @@ In the same directory as your docker-compose yml file run the following commands
 
 An example docker-compose yml file can be found here:  
 https://github.com/tempworks/docker/blob/master/self-hosted/docker-compose.yml  
-This example yml file installs all services needed by TW API, it is for demostration purposes only.
+
+*This example yml file installs all services needed by TW API, it is for demostration purposes only.*
 
 
