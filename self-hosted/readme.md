@@ -1,12 +1,14 @@
 ## Things you need before starting tasks in this document.
+* ***TempWorks Docker Container images require Windows Server 1709 Docker Hosts with Hyper-V isolation enabled***
 * Guides for setting up Docker on Windows Server can be found here:
 https://docs.docker.com/engine/installation/windows/docker-ee/   
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server  
 http://www.deploycontainers.com/2017/10/30/install-docker-windows-server-2016-version-1709/  
 
-* ***TempWorks Docker Container images require Windows Server 1709 Docker Hosts***
+* Guide to enable Windows Container Hyper-V isolation   
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#mitigation---use-hyper-v-isolation-with-docker-swarm  
 
-* *Prepared Windows Server 1709 installation*  
+* *Verify prepared Windows Server 1709 installation with Hyper-V isolation enabled*  
 Run Powershell command  
 ```(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId```  
 result should be **```1709```**
