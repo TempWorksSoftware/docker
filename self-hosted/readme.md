@@ -53,10 +53,10 @@ OpenSSL note:
         challengePassword_max = 20
 ```
 
-## Create certificates for TW Auth service
+## Create certificates for TW Login Service
 ```
 PS> openssl req -x509 -newkey rsa:4096 -days 10950 -nodes -subj "/C=US/O=YourOrg/CN=YourFqdn" -keyout key.pem -out cert.pem -config .\openssl.cfg
-PS> openssl pkcs12 -name "TempWorks Auth Signing" -export -in cert.pem -inkey key.pem -out auth-signing.pfx -password pass:YourPassword
+PS> openssl pkcs12 -name "TempWorks Login Signing" -export -in cert.pem -inkey key.pem -out auth-signing.pfx -password pass:YourPassword
 ```
 Place pfx file in your `auth` `%config_root%\certs` folder.
 
