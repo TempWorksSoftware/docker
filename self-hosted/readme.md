@@ -14,7 +14,7 @@ Run Powershell command
 result should be **```1709```**
 
 * *Functioning Windows Docker environment.*  
-Run command ```docker --version```, you should see **```Docker version 17.06.2-ee-5```** or later.  
+Run command ```docker --version```, you should see **```Docker version 17.06.2-ee-8```** or later.  
 Run command ```docker ps```, it should return a non-error.  
 
 * Docker Hub account with access to the TempWorks private repository: https://hub.docker.com/u/tempworks
