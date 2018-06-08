@@ -1,5 +1,5 @@
 ## Things you need before starting tasks in this document.
-* ***TempWorks Docker Container images require Windows Server 1709 Docker Hosts with Hyper-V isolation enabled***
+* ***TempWorks Docker Container images require Windows Server 1803 Docker Hosts with Hyper-V isolation enabled***
 * Guides for setting up Docker on Windows Server can be found here:
 https://docs.docker.com/engine/installation/windows/docker-ee/   
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server  
@@ -8,13 +8,13 @@ http://www.deploycontainers.com/2017/10/30/install-docker-windows-server-2016-ve
 * Guide to enable Windows Container Hyper-V isolation   
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#mitigation---use-hyper-v-isolation-with-docker-swarm  
 
-* *Verify prepared Windows Server 1709 installation with Hyper-V isolation enabled*  
+* *Verify prepared Windows Server 1803 installation with Hyper-V isolation enabled*  
 Run Powershell command  
 ```(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId```  
-result should be **```1709```**
+result should be **```1803```**
 
 * *Functioning Windows Docker environment.*  
-Run command ```docker --version```, you should see **```Docker version 17.06.2-ee-8```** or later.  
+Run command ```docker --version```, you should see **```Docker version 17.06.2-ee-13```** or later.  
 Run command ```docker ps```, it should return a non-error.  
 
 * Docker Hub account with access to the TempWorks private repository: https://hub.docker.com/u/tempworks
