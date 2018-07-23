@@ -1,11 +1,11 @@
 # build container
-docker build -t tempworks/redis-server:3.2.100-windowsservercore-1709 -f redis.dockerfile .
+docker build -t tempworks/redis-server:3.2.100-windowsservercore-1803 -f redis.dockerfile .
 
 # push to docker hub
-docker push tempworks/redis-server:3.2.100-windowsservercore-1709
+docker push tempworks/redis-server:3.2.100-windowsservercore-1803
 
 
 -----------------
 
 # run container
-docker run -d --name redis -p 6379:6379 -t tempworks/redis-server:3.2.100-windowsservercore-1709
+docker run -d --name redis -p 6379:6379 -t tempworks/redis-server:3.2.100-windowsservercore-1803
