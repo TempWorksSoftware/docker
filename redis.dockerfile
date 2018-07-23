@@ -1,10 +1,11 @@
-FROM microsoft/windowsservercore:1709
+FROM microsoft/windowsservercore:1803
 LABEL vendor="TempWorks Software, paul@tempworks.com"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN $ErrorActionPreference = 'Stop'; \  
-    wget https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile Redis-x64-3.2.100.zip ; \
+RUN $ErrorActionPreference = 'Stop'; \
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 ; \
+    Invoke-WebRequest -Uri https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile Redis-x64-3.2.100.zip ; \
     Expand-Archive Redis-x64-3.2.100.zip -dest 'C:\\Program Files\\Redis\\' ; \
     Remove-Item Redis-x64-3.2.100.zip -Force
 
