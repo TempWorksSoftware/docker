@@ -5,7 +5,7 @@ https://docs.docker.com/engine/installation/windows/docker-ee/
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server  
 http://www.deploycontainers.com/2017/10/30/install-docker-windows-server-2016-version-1709/  
 
-* [Guide to enable Windows Container Hyper-V isolation](#hyper-v-isolation)
+* Guide to enable Windows Container Hyper-V isolation[#](#hyper-v-isolation)   
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#mitigation---use-hyper-v-isolation-with-docker-swarm  
 
 * *Verify prepared Windows Server 1803 installation with Hyper-V isolation enabled*  
