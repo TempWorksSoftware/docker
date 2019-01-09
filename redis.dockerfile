@@ -1,5 +1,4 @@
-FROM microsoft/windowsservercore:1803
-LABEL vendor="TempWorks Software, paul@tempworks.com"
+FROM mcr.microsoft.com/windows/servercore:1809
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
