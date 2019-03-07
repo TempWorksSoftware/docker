@@ -1,3 +1,4 @@
+# https://github.com/docker-library/rabbitmq/issues/168#issuecomment-459916001
 FROM mcr.microsoft.com/windows/servercore:1809
 
 # $ProgressPreference: https://github.com/PowerShell/PowerShell/issues/2138#issuecomment-251261324
