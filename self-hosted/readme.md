@@ -1,9 +1,11 @@
 ## Things you need before starting tasks in this document.
-* ***TempWorks Docker Container images require Windows Server 1809 Docker Hosts. If plan to run other pre-1809 Docker containers you will need Hyper-V isolation enabled***
+* ***TempWorks Docker Container images require Windows Server 1809 Docker Hosts.*** 
 * Guides for setting up Docker on Windows Server can be found here:
 https://docs.docker.com/engine/installation/windows/docker-ee/   
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server  
 https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee  
+
+* ***If pre-1809 Docker containers are deployed, you will need Hyper-V isolation enabled***
 
 * Guide to enable Windows Container Hyper-V isolation[#](#hyper-v-isolation)   
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility   
