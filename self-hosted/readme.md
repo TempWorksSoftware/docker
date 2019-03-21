@@ -16,7 +16,7 @@ Run Powershell command
 ```(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId```  
 result should be **```1809```**
 
-* *Functioning Windows Docker environment.*  
+* ***Verifying your Windows Docker environment.***  
 Run command ```docker --version```, you should see **```Docker version 18.09```** or later.  
 Run command ```docker ps```, it should return a non-error.  
 
