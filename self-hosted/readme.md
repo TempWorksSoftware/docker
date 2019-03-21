@@ -78,8 +78,8 @@ In the same directory as your docker-compose yml file run the following commands
 
 Example:  
 ```
-    PS> $env:LOGIN_VERSION = "latest";
-    PS> $env:API3_VERSION = "latest";
+    PS> $env:LOGIN_VERSION = "latest-1809";
+    PS> $env:API3_VERSION = "latest-1809";
     PS> docker-compose -f docker-compose.yml -p "twapi" up -d --build;
 ```   
 
