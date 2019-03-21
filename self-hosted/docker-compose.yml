@@ -2,7 +2,7 @@ version: '3'
 
 services:
   redis:
-    image: tempworks/redis-server:3.2.100-windowsservercore-1803
+    image: tempworks/redis-server:3.2.100-windowsservercore-1809
     networks:
       - default
     restart: always
@@ -12,12 +12,12 @@ services:
       - "6379:6379"
 
   srps:
-    image: tempworks/sovren-srps
+    image: tempworks/sovren-srps:latest-1809
     networks:
       - default
 
   convert:
-    image: tempworks/convert-service
+    image: tempworks/convert-service:latest-1809
     networks:
       - default
 
