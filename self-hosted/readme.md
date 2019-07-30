@@ -27,10 +27,20 @@ Run command ```docker ps```, it should return a non-error.
 * Create persisted paths for container configs and logs, example:
 ```
     PS> md c:/ProgramData/TempWorks/config/api-server
+    PS> md c:/ProgramData/TempWorks/config/api-email-server
+    PS> md c:/ProgramData/TempWorks/config/api-jobservice-server
     PS> md c:/ProgramData/TempWorks/config/login-server
     PS> md c:/ProgramData/TempWorks/logs/api-server
     PS> md c:/ProgramData/TempWorks/logs/login-server
 ```    
+
+## Create directories for volatile data on Docker host
+
+* Create persisted paths for volatile container temp directories, example:
+```
+    PS> md c:/ProgramData/TempWorks/temp/shared-temp
+    PS> md c:/ProgramData/TempWorks/temp/email-workingdir
+``` 
 
 * Install and update config files
 
@@ -71,6 +81,7 @@ PS> openssl req -x509 -newkey rsa:4096 -days 10950 -nodes -subj "/C=US/O=YourOrg
 ```
 Place cert.pem and key.pem in your `api-server` `%config_root%\certs\ExternalServices` folder
 
+Place cert.pem and key.pem in your `api-jobservice-server` `%config_root%\certs\ExternalServices` folder
 ##### !!! TIP: Keep your pem & pfx files, and password in a secure place in case you need them in the future.
 
 ## 
