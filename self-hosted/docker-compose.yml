@@ -39,7 +39,24 @@ services:
       - "55180:80"
     depends_on:
       - redis
-         
+
+    api-email-server-production:
+    image: tempworks/api3-email-server:$API3_VERSION-1809
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
+      - SERILOG_DEBUG=true
+    volumes:
+      - c:/ProgramData/TempWorks/email-workingdir:c:/app/email-workingdir
+      - c:/ProgramData/TempWorks/config/api-email-server:c:/app/config
+    networks:
+      - default
+    restart: unless-stopped
+    expose:
+      - "80"
+    ports:
+      - "55480:80"      
+     
   api-jobservice-server:
     image: tempworks/api3-jobservice-server:$API3_VERSION-1809
     environment:
@@ -48,7 +65,7 @@ services:
       - SERILOG_DEBUG=true
     volumes:
       - c:/ProgramData/TempWorks/temp/shared-temp:c:/app/shared-temp
-      - c:/ProgramData/TempWorks/config/api3-jobservice-server:c:/app/config
+      - c:/ProgramData/TempWorks/config/api-jobservice-server:c:/app/config
     networks:
       - default
     restart: unless-stopped
@@ -79,6 +96,7 @@ services:
       - srps
       - convert
       - api-jobservice-server
+      - api-email-server
 
 networks:
   default:
