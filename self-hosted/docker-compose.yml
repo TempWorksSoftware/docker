@@ -40,7 +40,7 @@ services:
     depends_on:
       - redis
 
-    api-email-server-production:
+    api-email-server:
     image: tempworks/api3-email-server:$API3_VERSION-1809
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
