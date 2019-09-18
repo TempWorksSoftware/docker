@@ -58,7 +58,7 @@ services:
       - "55480:80"      
      
   api-jobservice-server:
-    image: tempworks/api3-jobservice-server:$API3_VERSION-1809
+    image: tempworks/api3-jobservice-server:$API3_VERSION
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
@@ -81,6 +81,7 @@ services:
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
       - SERILOG_DEBUG=true
     volumes:
+      - c:/ProgramData/TempWorks/temp/shared-temp:c:/app/shared-temp
       - c:/ProgramData/TempWorks/config/api-server:c:/app/config
       - c:/ProgramData/TempWorks/logs/api-server:c:/app/logs
     networks:
