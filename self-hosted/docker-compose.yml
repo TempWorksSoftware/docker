@@ -22,7 +22,7 @@ services:
       - default
 
   login:
-    image: tempworks/login-server:$LOGIN_VERSION-1809
+    image: tempworks/login-server:$LOGIN_VERSION
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
@@ -41,7 +41,7 @@ services:
       - redis
 
   api-email-server:
-    image: tempworks/api3-email-server:$API3_VERSION-1809
+    image: tempworks/api3-email-server:$API3_VERSION
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
@@ -58,7 +58,7 @@ services:
       - "55480:80"      
      
   api-jobservice-server:
-    image: tempworks/api3-jobservice-server:$API3_VERSION-1809
+    image: tempworks/api3-jobservice-server:$API3_VERSION
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
@@ -75,7 +75,7 @@ services:
       - "55380:80"
       
   api-server:
-    image: tempworks/api3-server:$API3_VERSION-1809
+    image: tempworks/api3-server:$API3_VERSION
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
