@@ -77,7 +77,8 @@ Update `auth` appsettings.json `SigningCertificateFilename` and `SigningCertific
 
 ## Create certificates for External Services credential store
 ```
-PS> openssl req -x509 -newkey rsa:4096 -days 10950 -nodes -subj "/C=US/O=YourOrg/CN=YourFqdn" -keyout key.pem -out cert.pem -config .\openssl.cfg
+PS> openssl genrsa -out key.pem 2048
+PS> openssl req -x509 -days 10950 -nodes -subj "/C=US/O=YourOrg/CN=YourFqdn" -key key.pem -out cert.pem
 ```
 Place cert.pem and key.pem in your `api-server` `%config_root%\certs\ExternalServices` folder
 
