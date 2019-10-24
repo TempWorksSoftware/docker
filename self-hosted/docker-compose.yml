@@ -47,7 +47,7 @@ services:
       - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
       - SERILOG_DEBUG=true
     volumes:
-      - c:/ProgramData/TempWorks/email-workingdir:c:/app/email-workingdir
+      - c:/ProgramData/TempWorks/temp/email-workingdir:c:/app/email-workingdir
       - c:/ProgramData/TempWorks/config/api-email-server:c:/app/config
     networks:
       - default
