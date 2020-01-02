@@ -1,0 +1,41 @@
+| beyond\appsettings.json                                                                                                 | Description                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| {                                                                                                                       |                                                                              |
+|   "ConnectionStrings": {                                                                                                |                                                                              |
+|     "EmailDatabase": "Server=???????;Database=???????;User Id=???????;Password=???????;MultipleActiveResultSets=True;", | Email database SQL connection string.                                        |
+|     "RebusDatabase": "Server=?????;Database=?????;User Id=?????;Password=?????;MultipleActiveResultSets=True;"          | Rebus database SQL connection string.                                        |
+|   },                                                                                                                    |                                                                              |
+|   "AppSettings": {                                                                                                      |                                                                              |
+|     "EmailWorkingDirectory": "C:\\app\\email-workingdir",                                                               | Shared local path for staging emails and attachments.                        |
+|     "MaxMBSizeOfEmailAttachments": 25,                                                                                  | Maximum size in megabytes for attachments.                                   |
+|     "NumberOfDaysToRetainErrors": 7                                                                                     |                                                                              |
+|   },                                                                                                                    |                                                                              |
+|   "Hangfire": {                                                                                                         | Hangfire worker process settings.                                            |
+|     "Dashboard": {                                                                                                      |                                                                              |
+|       "IsDashboardActive": "True",                                                                                      |                                                                              |
+|       "AppPath": "/",                                                                                                   |                                                                              |
+|       "StatsPollingInterval": 2000                                                                                      |                                                                              |
+|     },                                                                                                                  |                                                                              |
+|     "Server": {                                                                                                         |                                                                              |
+|       "HeartbeatInterval": "00:00:30",                                                                                  |                                                                              |
+|       "Queues": [ "email" ],                                                                                            |                                                                              |
+|       "SchedulePollingInterval": "00:00:15",                                                                            |                                                                              |
+|       "ServerCheckInterval": "00:05:00",                                                                                |                                                                              |
+|       "ServerName": null,                                                                                               |                                                                              |
+|       "ServerTimeout": "00:05:00",                                                                                      |                                                                              |
+|       "ShutdownTimeout": "00:00:15",                                                                                    |                                                                              |
+|       "WorkerCount": 20                                                                                                 |                                                                              |
+|     }                                                                                                                   |                                                                              |
+|   },                                                                                                                    |                                                                              |
+|   "Serilog": {                                                                                                          | Logging settings for Serilog logging framework (see: <https://serilog.net>). |
+|     "MinimumLevel": {                                                                                                   |                                                                              |
+|       "Default": "Verbose",                                                                                             |                                                                              |
+|       "Override": {                                                                                                     |                                                                              |
+|         "Hangfire": "Information",                                                                                      |                                                                              |
+|         "App.Metrics": "Information",                                                                                   |                                                                              |
+|         "Microsoft": "Information",                                                                                     |                                                                              |
+|         "System": "Information"                                                                                         |                                                                              |
+|       }                                                                                                                 |                                                                              |
+|     }                                                                                                                   |                                                                              |
+|   }                                                                                                                     |                                                                              |
+| }                                                                                                                       |                                                                              |
