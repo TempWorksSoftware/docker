@@ -8,8 +8,6 @@ services:
     restart: always
     expose:
       - "6379"
-    ports:
-      - "6379:6379"
 
   srps:
     image: tempworks/sovren-srps:latest-1809
