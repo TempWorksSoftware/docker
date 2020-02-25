@@ -55,7 +55,7 @@ services:
     expose:
       - "80"
     ports:
-      - "55480:80"      
+      - "55480:80"
      
   api-jobservice-server:
     image: tempworks/api3-jobservice-server:$API3_VERSION
