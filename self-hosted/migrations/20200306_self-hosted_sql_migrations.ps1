@@ -84,4 +84,52 @@ VALUES ( 1,
 END
 
 '@
-Apply-SqlMigration $loginServerConnectionString "Add background checks ApiScope to login database" $sqlMigrationTestQuery1 $sqlMigrationQuery1
+Apply-SqlMigration $loginServerConnectionString "Add backgroundcheck-webhook ApiScope to login database" $sqlMigrationTestQuery1 $sqlMigrationQuery1
+
+$sqlMigrationTestQuery2 = @'
+SELECT 1 from dbo.ApiScopes WHERE name='textmessage-write'
+'@
+$sqlMigrationQuery2 = @'
+
+IF NOT EXISTS (SELECT 1 from dbo.ApiScopes WHERE name='textmessage-write')
+BEGIN
+PRINT N'Inserting ApiScope...';
+
+INSERT INTO ApiScopes (ApiResourceId, Description, DisplayName, Emphasize, Name, Required, ShowInDiscoveryDocument)
+VALUES (1, 'Allow write access to Text Message data', 'Text Message Write', 0, 'textmessage-write', 0, 1)
+END
+
+'@
+Apply-SqlMigration $loginServerConnectionString "Add textmessage-write ApiScope to login database" $sqlMigrationTestQuery2 $sqlMigrationQuery2
+
+$sqlMigrationTestQuery3 = @'
+SELECT 1 from dbo.ApiScopes WHERE name='textmessage-read'
+'@
+$sqlMigrationQuery3 = @'
+
+IF NOT EXISTS (SELECT 1 from dbo.ApiScopes WHERE name='textmessage-read')
+BEGIN
+PRINT N'Inserting ApiScope...';
+
+INSERT INTO ApiScopes (ApiResourceId, Description, DisplayName, Emphasize, Name, Required, ShowInDiscoveryDocument)
+VALUES (1, 'Allow read access to Text Message data', 'Text Message Read', 0, 'textmessage-read', 0, 1)
+END
+
+'@
+Apply-SqlMigration $loginServerConnectionString "Add textmessage-read ApiScope to login database" $sqlMigrationTestQuery3 $sqlMigrationQuery3
+
+$sqlMigrationTestQuery4 = @'
+SELECT 1 from dbo.ApiScopes WHERE name='textmessage-webhook'
+'@
+$sqlMigrationQuery4 = @'
+
+IF NOT EXISTS (SELECT 1 from dbo.ApiScopes WHERE name='textmessage-webhook')
+BEGIN
+PRINT N'Inserting ApiScope...';
+
+INSERT INTO ApiScopes (ApiResourceId, Description, DisplayName, Emphasize, Name, Required, ShowInDiscoveryDocument)
+VALUES (1, 'Allow webhook access for Text Message Vendors', 'Text Message Webhook', 0, 'textmessage-webhook', 0, 0)
+END
+
+'@
+Apply-SqlMigration $loginServerConnectionString "Add textmessage-webhook ApiScope to login database" $sqlMigrationTestQuery4 $sqlMigrationQuery4
