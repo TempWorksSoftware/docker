@@ -132,4 +132,16 @@ VALUES (1, 'Allow webhook access for Text Message Vendors', 'Text Message Webhoo
 END
 
 '@
+
 Apply-SqlMigration $loginServerConnectionString "Add textmessage-webhook ApiScope to login database" $sqlMigrationTestQuery4 $sqlMigrationQuery4
+
+$sqlMigrationTestQuery5 = @'
+SELECT 1 FROM dbo.PersistedGrants pg WITH (NOLOCK) WHERE pg.Type = 'refresh_token' AND data NOT LIKE '%"role"%'
+'@
+$sqlMigrationQuery5 = @'
+
+DELETE FROM dbo.PersistedGrants WHERE Type = 'refresh_token' AND Data NOT LIKE '%"role"%'
+
+'@
+
+Apply-SqlMigration $loginServerConnectionString "Remove old refresh tokens missing a role claim" $sqlMigrationTestQuery5 $sqlMigrationQuery5
