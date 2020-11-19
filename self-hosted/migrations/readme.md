@@ -8,6 +8,7 @@
 | [20200417_self-hosted_sql_migrations.ps1](./20200417_self-hosted_sql_migrations.ps1) | 2020-04-17 | Subtenant schema changes |
 | [20200807_self-hosted_sql_migrations.ps1](./20200807_self-hosted_sql_migrations.ps1) | 2020-08-07 | Add assessment webhook ApiScope to login database |
 | [20201016_self-hosted_sql_migrations.ps1](./20201016_self-hosted_sql_migrations.ps1) | 2020-10-16 | Add Indeed webhook ApiScope to login database |
+| [20201120_self-hosted_sql_migrations.ps1](./20201120_self-hosted_sql_migrations.ps1) | 2020-11-20 | Add background checks ApiScopes to login database |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
