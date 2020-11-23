@@ -1,10 +1,11 @@
 | api-jobservice-server\appsettings.json                                                                                     | Description                                                      |
-|----------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | {                                                                                                                          |                                                                  |
 |   "ConnectionStrings": {                                                                                                   |                                                                  |
 |     "TwApiDatabase": "Server=???????;Database=???????;User Id=???????;Password=???????;MultipleActiveResultSets=True;",    | Login server database SQL connection string.                     |
 |     "RebusDatabase": "Server=???????;Database=???????;User Id=???????;Password=???????;MultipleActiveResultSets=True;",    | Rebus database SQL connection string.                            |
 |     "HangfireDatabase": "Server=???????;Database=???????;User Id=???????;Password=???????;MultipleActiveResultSets=True;", | Hangfire database SQL connection string.                         |
+|     "Redis": "redis",                                                                                                      | Redis connection string - usually just the service name (ex: "redis") in a single-host system. |
 |     "ConvertServiceUrl": "http://convert"                                                                                  | This convert service value should be used in most circumstances. |
 |   },                                                                                                                       |                                                                  |
 |   "Hangfire": {                                                                                                            | Hangfire worker process settings.                                |
