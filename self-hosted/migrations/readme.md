@@ -11,6 +11,7 @@
 | [20201120_self-hosted_sql_migrations.ps1](./20201120_self-hosted_sql_migrations.ps1) | 2020-11-20  | Add Background checks ApiScopes to login database |
 | [20210115_self-hosted_sql_migrations.ps1](./20210115_self-hosted_sql_migrations.ps1) | 2021-01-15  | Add Email and Sovren ApiScopes to login database |
 | [20210326_API_Readiness_Check.ps1](./20210326_API_Readiness_Check.ps1) | 2021-03-26 | Session context readiness check |
+| [20210507_self-hosted_sql_migrations.ps1](./20210507_self-hosted_sql_migrations.ps1) | 2021-05-07  | Add Legal and Payroll ApiScopes to login database |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
