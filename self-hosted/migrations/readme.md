@@ -14,6 +14,7 @@
 | [20210507_self-hosted_sql_migrations.ps1](./20210507_self-hosted_sql_migrations.ps1) | 2021-05-07 | Add Legal and Payroll ApiScopes to login database |
 | [20210618_self-hosted_sql_migrations.ps1](./20210618_self-hosted_sql_migrations.ps1) | 2021-06-18 | Add ApiScopes to login database                   |
 | [20211022_self-hosted_sql_migrations.ps1](./20211022_self-hosted_sql_migrations.ps1) | 2021-10-22 | Update API rebus database                         |
+| [20211203_self-hosted_sql_migrations.ps1](./20211203_self-hosted_sql_migrations.ps1) | 2021-12-03 | Add SSO schema to login server                    |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
