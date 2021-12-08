@@ -97,6 +97,24 @@ services:
       - api-jobservice-server
       - api-email-server
 
+  beyond:
+    image: tempworks/beyond:$BEYOND_VERSION
+    environment:
+      - ASPNETCORE_ENVIRONMENT=production
+      - ASPNETCORE_CONFIG_BASEPATH=c:\app\config
+      - SERILOG_DEBUG=true
+    volumes:
+      - c:/ProgramData/TempWorks/config/beyond:c:/app/config
+      - c:/ProgramData/TempWorks/logs/beyond:c:/app/logs
+    networks:
+      - default
+    expose:
+      - "80"
+    ports:
+      - "88:80"
+    restart: unless-stopped
+      
+      
 networks:
   default:
     external:
