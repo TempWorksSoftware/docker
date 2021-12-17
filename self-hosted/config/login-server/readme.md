@@ -41,7 +41,8 @@
 |   "AppSettings": {                                                                        |                                                                                                |
 |     "UpgradeInsecureRequest": "false",                                                    | Apply `upgrade-insecure-requests` content security policy.                                     |
 |     "SigningCertificateFilename": "?????",                                                | Filename of PFX file in `certs/` folder.                                                       |
-|     "SigningCertificatePassword": "?????"                                                 | Password used when generating PFX file.                                                        |
+|     "SigningCertificatePassword": "?????",                                                | Password used when generating PFX file.                                                        |
+|     "BeyondUrl": "?????"                                                                  | Show a link to Beyond on the login page when defined.  Your Beyond URL (ex: https://beyond.example.com). |
 |   },                                                                                      |                                                                                                |
 |   "Serilog": {                                                                            | Logging settings for Serilog logging framework (see: <https://serilog.net>).                   |
 |     "MinimumLevel": {                                                                     |                                                                                                |
