@@ -13,11 +13,13 @@ services:
     image: tempworks/sovren-srps:latest-1809
     networks:
       - default
+    restart: unless-stopped
 
   convert:
     image: tempworks/convert-service:latest-1809
     networks:
       - default
+    restart: unless-stopped
 
   login:
     image: tempworks/login-server:$LOGIN_VERSION
