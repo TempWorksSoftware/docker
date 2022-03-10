@@ -17,6 +17,7 @@
 | [20211203_self-hosted_sql_migrations.ps1](./20211203_self-hosted_sql_migrations.ps1) | 2021-12-03 | Add SSO schema to login server                    |
 | [20211217_self-hosted_sql_migrations.ps1](./20211217_self-hosted_sql_migrations.ps1) | 2021-12-17 | SSO changes                                       |
 | [20211231_self-hosted_sql_migrations.ps1](./20211231_self-hosted_sql_migrations.ps1) | 2021-12-31 | Add SSO base configuration                        |
+| [20220311_self-hosted_sql_migrations.ps1](./20220311_self-hosted_sql_migrations.ps1) | 2021-12-31 | Additional SSO changes                            |
 
 
 
