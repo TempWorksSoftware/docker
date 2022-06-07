@@ -19,7 +19,7 @@
 | [20211231_self-hosted_sql_migrations.ps1](./20211231_self-hosted_sql_migrations.ps1) | 2021-12-31 | Add SSO base configuration                        |
 | [20220311_self-hosted_sql_migrations.ps1](./20220311_self-hosted_sql_migrations.ps1) | 2022-03-11 | Additional SSO changes                            |
 | [20220325_self-hosted_sql_migrations.ps1](./20220325_self-hosted_sql_migrations.ps1) | 2022-03-25 | Additional SSO changes                            |
-
+| [20220617_self-hosted_sql_migrations.ps1](./20220617_self-hosted_sql_migrations.ps1) | 2022-06-17 | Enforce tenant naming constraints                 |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
