@@ -46,7 +46,7 @@ function Apply-SqlMigration ($connectionString, $description, $testQuery, $updat
                 Execute-SqlQuery $connectionString $updateQuery
                 Write-Host " SUCCEEDED." -foregroundcolor green
             } catch [Exception] {
-g                Write-Host " FAILED." -foregroundcolor red
+                Write-Host " FAILED." -foregroundcolor red
                 Write-Error -Message "Could not apply SQL migration"
                 Write-Error -Exception $_.Exception
                 Write-Host "Consider applying this SQL migration manually:"
@@ -114,7 +114,6 @@ BEGIN
         THROW 50000, @ErrorMessage, 1
     END
 END
-GO
 "@
     },
 	@{
@@ -150,8 +149,8 @@ BEGIN
             = CONCAT(
                         N'The SubTenant named ', @TopInvalidTenantName,
                         N' contains invalid characters. Must be all lowercased alphanumberic characters or dashes.'
-                    )
-        THROW 50000, @ErrorMessage, 1
+                    );
+        THROW 50000, @ErrorMessage, 1;
     END
 
 
@@ -169,11 +168,10 @@ BEGIN
     IF @TopInvalidTenantName IS NOT NULL
     BEGIN
         SET @ErrorMessage
-            = CONCAT(N'The Tenant named ', @TopInvalidTenantName, N' will create a name conflict with the existing Tenant ', @TopInvalidExistingTenantName)
-        THROW 50000, @ErrorMessage, 1
+            = CONCAT(N'The Tenant named ', @TopInvalidTenantName, N' will create a name conflict with the existing Tenant ', @TopInvalidExistingTenantName);
+        THROW 50000, @ErrorMessage, 1;
     END
 END
-GO  		
 "@
 	}
 )
