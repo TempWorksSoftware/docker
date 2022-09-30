@@ -93,8 +93,8 @@ BEGIN
     IF @TopInvalidTenantName IS NOT NULL
     BEGIN
         SET @ErrorMessage
-            = CONCAT(N'The Tenant named ', @TopInvalidTenantName, N' contains invalid characters. Must be all lowercased alphanumberic characters or dashes.')
-        THROW 50000, @ErrorMessage, 1
+            = CONCAT(N'The Tenant named ', @TopInvalidTenantName, N' contains invalid characters. Must be all lowercased alphanumberic characters or dashes.');
+        THROW 50000, @ErrorMessage, 1;
     END
 
 
@@ -110,8 +110,8 @@ BEGIN
     IF @TopInvalidTenantName IS NOT NULL
     BEGIN
         SET @ErrorMessage
-            = CONCAT(N'The Tenant named ', @TopInvalidTenantName, N' will create a name conflict with the existing Tenant ', @TopInvalidExistingTenantName)
-        THROW 50000, @ErrorMessage, 1
+            = CONCAT(N'The Tenant named ', @TopInvalidTenantName, N' will create a name conflict with the existing Tenant ', @TopInvalidExistingTenantName);
+        THROW 50000, @ErrorMessage, 1;
     END
 END
 "@
