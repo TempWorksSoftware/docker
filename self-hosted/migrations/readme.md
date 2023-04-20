@@ -23,6 +23,7 @@
 | [20221021_self-hosted_sql_migrations.ps1](./20221021_self-hosted_sql_migrations.ps1) | 2022-10-21 | Email schema change                               |
 | [20230113_self-hosted_sql_migrations.ps1](./20230113_self-hosted_sql_migrations.ps1) | 2022-01-13 | Additional identity provider schema               |
 | [20230210_self-hosted_sql_migrations.ps1](./20230210_self-hosted_sql_migrations.ps1) | 2022-02-10 | Email Server product type                         |
+| [20230421_self-hosted_sql_migrations.ps1](./20230421_self-hosted_sql_migrations.ps1) | 2022-04-21 | Email Server schema change                        |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
