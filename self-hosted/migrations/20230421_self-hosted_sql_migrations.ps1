@@ -16,7 +16,7 @@ param (
     )
 )
 
-$appsettingsPath = $apiEmailServer+'\appsettings.production.json'
+$appsettingsPath = $apiEmailServer+'\appsettings.json'
 
 $emailServerConnectionString = (Get-Content ($appsettingsPath) -ErrorAction stop | Out-String |ConvertFrom-Json).ConnectionStrings.EmailDatabase
 
@@ -56,8 +56,6 @@ function Apply-SqlMigration ($connectionString, $description, $testQuery, $updat
         }
     }
 }
-
-write-host "Connection string: " + $emailServerConnectionString
 
 $sqlMigrationTestQuery1 = @'
 SELECT * FROM sys.columns AS c
