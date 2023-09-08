@@ -104,7 +104,15 @@ $loginServerUpdates = @(
         Migrate = @"
         ALTER TABLE [dbo].[ClientAdditionalInfo] ADD
         [RateLimitTypeId] INT NOT NULL CONSTRAINT [DF_ClientAdditionalInfo_RateLimitTypeId] DEFAULT 1;
-
+"@;
+    },
+    @{
+        Description = "Add ClientAdditionalInfo RateLimitTypeId constraint";
+        Test = @"
+        SELECT TOP 1 1 FROM [sys].[foreign_keys]
+	WHERE [name] like 'FK_ClientAdditionalInfo_RateLimitType_RateLimitTypeId'
+"@;
+        Migrate = @"
         UPDATE [dbo].[ClientAdditionalInfo]
         SET [RateLimitTypeId] = CASE WHEN [IsTWProduct] = 1 THEN 1 ELSE 2 END;
 
