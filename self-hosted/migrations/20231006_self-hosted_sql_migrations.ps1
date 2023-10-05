@@ -35,7 +35,7 @@ function Execute-SqlQuery ($connectionString, $query) {
 function Apply-SqlMigration ($connectionString, $description, $testQuery, $updateQuery) {
     $testResult = Execute-SqlQuery -ConnectionString $connectionString -Query $testQuery
     
-    if ($testResult.Table) {
+    if ($testResult.Table.Column1) {
         Write-Host "'$description' already applied." -foregroundcolor green
     } else {
         Write-Host "Applying '$description'..." -NoNewline
