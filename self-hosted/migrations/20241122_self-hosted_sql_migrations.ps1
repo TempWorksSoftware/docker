@@ -88,7 +88,7 @@ $loginServerUpdates = @(
         @{
         Description = "Schema updates for Login Server .Net 8 upgrade. [WI 103114]";
         Test = @"
-            IF OBJECT_ID('dbo.PushedAuthorizationRequests', 'U') <> 0 SELECT  1;'
+            IF OBJECT_ID('dbo.PushedAuthorizationRequests', 'U') <> 0 SELECT  1;
 "@;
         Migrate = 
         @"
