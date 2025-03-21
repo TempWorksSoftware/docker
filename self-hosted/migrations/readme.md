@@ -32,6 +32,7 @@
 | [20240503_self-hosted_sql_migrations.ps1](./20240503_self-hosted_sql_migrations.ps1) | 2024-05-03 | Default client rate limits                        |
 | [20241122_self-hosted_sql_migrations.ps1](./20241122_self-hosted_sql_migrations.ps1) | 2024-11-22 | New tenant identifiers and Dotnet 8 upgrade       |
 | [20241213_self-hosted_sql_migrations.ps1](./20241213_self-hosted_sql_migrations.ps1) | 2024-12-13 | Tenant identifier changes                         |
+| [20250321_self-hosted_sql_migrations.ps1](./20250321_self-hosted_sql_migrations.ps1) | 2025-03-21 | Login server client changes                       |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
