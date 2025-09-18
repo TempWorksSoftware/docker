@@ -9,12 +9,6 @@ services:
     expose:
       - "6379"
 
-  srps:
-    image: tempworks/sovren-srps:latest-1809
-    networks:
-      - default
-    restart: unless-stopped
-
   convert:
     image: tempworks/convert-service:latest-1809
     networks:
@@ -94,7 +88,6 @@ services:
     depends_on:
       - login
       - redis
-      - srps
       - convert
       - api-jobservice-server
       - api-email-server
