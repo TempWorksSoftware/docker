@@ -35,6 +35,7 @@
 | [20250321_self-hosted_sql_migrations.ps1](./20250321_self-hosted_sql_migrations.ps1) | 2025-03-21 | Login server client changes                       |
 | [20250530_self-hosted_sql_migrations.ps1](./20250530_self-hosted_sql_migrations.ps1) | 2025-05-30 | Login server schema changes                       |
 | [20250627_self-hosted_sql_migrations.ps1](./20250627_self-hosted_sql_migrations.ps1) | 2025-06-27 | Login server schema changes                       |
+| [20251212_self-hosted_sql_migrations.ps1](./20251212_self-hosted_sql_migrations.ps1) | 2026-12-12 | Login server schema changes                       |
 
 To avoid settings and resetting execution policy, these scripts can be invoked in the following manner.  Note that if you have placed your service configuration paths follow a convention other than `C:\ProgramData\TempWorks\config\{service-name}`, you will need to manually supply a path to the service configuration folder.
 
